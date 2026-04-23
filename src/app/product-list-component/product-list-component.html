@@ -1,10 +1,5 @@
 <h2>Liste des produits</h2>
 
 @for (p of produits; track p.id) {
-  <div class="product-card">
-    <h3>{{ p.nom }}</h3>
-    <p>{{ p.prix }} €</p>
-
-    <img [src]="p.image" width="120">
-  </div>
+  <app-product [product]="p"></app-product>
 }
