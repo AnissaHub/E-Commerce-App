@@ -15,4 +15,8 @@ export class ProductListComponent {
     new Product(1, 'Peluche', 35, 'https://...'),
     new Product(2, 'Voiture', 49, 'https://...')
   ];
+  //Ajouter au panier
+   onAddToCart(product: Product) {
+    console.log('Produit ajouté au panier :', product);
+ }
 }
