@@ -17,6 +17,7 @@ export class ProductComponent {
   // fonction différente
   add() {
     this.addToCart.emit(this.product);
+    
   }
 
 }
