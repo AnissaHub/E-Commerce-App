@@ -16,7 +16,8 @@ export class CartService {
 
   // ajouter un produit au panier
   addToCart(product: Product) {
-
+    // si plus de stock → on bloque
+   if (product.stock <= 0) return;
     // vérifier si le produit existe déjà
     const existingProduct = this.cart.find(p => p.id === product.id);
 
@@ -30,6 +31,8 @@ export class CartService {
         quantity: 1
       });
     }
+    //on diminue le stock ici
+    product.stock--;
   }
 
   //  augmenter quantité
@@ -43,28 +46,47 @@ export class CartService {
 
   //  diminuer quantité (et supprimer si = 0)
   decrease(product: Product) {
-    const item = this.cart.find(p => p.id === product.id);
 
-    if (!item) return;
+  const item = this.cart.find(p => p.id === product.id);
 
-    item.quantity--;
+  if (!item) return;
 
-    // si quantité = 0 → suppression complète
-    if (item.quantity <= 0) {
-      this.removeFromCart(product);
-    }
+  //  on enlève 1 du panier
+  item.quantity--;
+
+  //on remet 1 dans le stock
+  product.stock++;
+
+  //si quantité = 0 → suppression complète du produit
+  if (item.quantity <= 0) {
+    this.removeFromCart(product);
   }
-
+}
   // supprimer complètement un produit
   removeFromCart(product: Product) {
-    this.cart = this.cart.filter(p => p.id !== product.id);
-  }
+
+  const item = this.cart.find(p => p.id === product.id);
+
+  if (!item) return;
+
+  // on remet TOUTES les quantités dans le stock
+  product.stock += item.quantity;
+
+  //  suppression du panier
+  this.cart = this.cart.filter(p => p.id !== product.id);
+}
 
   // vider tout le panier
-  clearCart() {
-    this.cart = [];
-  }
+ clearCart() {
 
+  //remettre le stock pour chaque produit du panier
+  this.cart.forEach(item => {
+    item.stock += item.quantity;
+  });
+
+  // vider le panier
+  this.cart = [];
+}
   // calculer le total du panier
   getTotal(): number {
     return this.cart.reduce((total, product) => {

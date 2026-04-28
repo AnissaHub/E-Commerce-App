@@ -1,7 +1,13 @@
 <div class="card">
   <h3>{{ product.nom }}</h3>
+
   <p>{{ product.prix }} €</p>
 
-  <button (click)="add()">Ajouter au panier</button>
-  
+  <p>Stock : {{ product.stock }}</p>
+
+  <button
+    (click)="add()"
+    [disabled]="product.stock === 0">
+    Ajouter au panier
+  </button>
 </div>

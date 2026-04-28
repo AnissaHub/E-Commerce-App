@@ -13,8 +13,8 @@ import { CartService } from '../services/cart-service';
 export class ProductListComponent {
 
   produits: Product[] = [
-    new Product(1, 'Peluche', 35, 'https://...'),
-    new Product(2, 'Voiture', 49, 'https://...')
+    new Product(1, 'Peluche', 35, 10, 'https://...'),
+    new Product(2, 'Voiture', 49, 38,'https://...')
   ];
    //  injection du service panier
   constructor(private cartService: CartService) {}
