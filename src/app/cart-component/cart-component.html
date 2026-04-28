@@ -1,18 +1,16 @@
 <h2>Mon Panier 🛒</h2>
 
-<p>Nombre de produits : {{ cart.length }}</p>
-
 @if (cart.length === 0) {
-  <p>Panier vide</p>
+  <p style="text-align:center;">Panier vide</p>
 }
 
 @if (cart.length > 0) {
 
   @for (p of cart; track p.id) {
-    <div>
+    <div class="cart-item">
       <h3>{{ p.nom }}</h3>
 
-      <p>{{ p.prix }} €</p>
+      <p>Prix : {{ p.prix }} €</p>
 
       <p>Quantité : {{ p.quantity }}</p>
 
@@ -21,15 +19,12 @@
         <button (click)="decrease(p)">-</button>
         <button (click)="remove(p)">Supprimer</button>
       </div>
-
-      <hr>
     </div>
   }
 
-  <h3>Total : {{ total }} €</h3>
+  <p class="total">Total : {{ total }} €</p>
 
   <button (click)="clearCart()">
     Vider le panier
   </button>
-
 }
