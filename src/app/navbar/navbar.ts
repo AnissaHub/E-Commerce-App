@@ -13,8 +13,6 @@ import { CartService } from '../services/cart-service';
 export class NavbarComponent {
   constructor(private cartService: CartService) {}
   get totalItems(): number {
-  return this.cartService
-    .getCart()
-    .reduce((sum, product) => sum + product.quantity, 0);
+  return this.cartService.getCart().reduce((sum, product) => sum + product.quantity, 0);
 }
 }

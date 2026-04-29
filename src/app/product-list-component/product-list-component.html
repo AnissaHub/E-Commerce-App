@@ -1,8 +1,24 @@
+<h2>Liste des produits</h2>
+
+<!-- Zone de filtrage -->
+<div class="filter">
+
+  @for (c of categories; track c) {
+    <button (click)="selectedCategory = c">
+      {{ c }}
+    </button>
+  }
+
+</div>
+
+<!-- Liste des produits filtrés -->
 <div class="container">
-  @for (p of produits; track p.id) {
+
+  @for (p of filteredProducts; track p.id) {
     <app-product
       [product]="p"
       (addToCart)="onAddToCart($event)">
     </app-product>
   }
+
 </div>

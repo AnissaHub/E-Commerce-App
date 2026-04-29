@@ -13,9 +13,36 @@ import { CartService } from '../services/cart-service';
 export class ProductListComponent {
 
   produits: Product[] = [
-    new Product(1, 'Peluche', 35, 10, 'https://...'),
-    new Product(2, 'Voiture', 49, 38,'https://...')
-  ];
+  new Product(
+    1,
+    'Peluche',
+    35,
+    10,
+    'https://...',
+    1,
+    'Jouets'
+  ),
+
+  new Product(
+    2,
+    'Voiture',
+    49,
+    38,
+    'https://...',
+    1,
+    'Jouets'
+  ),
+
+  new Product(
+    3,
+    'laptop',
+    10,
+    30,
+    'https://...',
+    1,
+    'Tech'
+  )
+];
    //  injection du service panier
   constructor(private cartService: CartService) {}
 
@@ -24,4 +51,17 @@ export class ProductListComponent {
     this.cartService.addToCart(product);
     console.log('Panier:', this.cartService.getCart());
   }
+  selectedCategory: string = 'Tous';
+
+categories: string[] = ['Tous', 'Jouets', 'Tech', 'Maison'];
+
+get filteredProducts() {
+  if (this.selectedCategory === 'Tous') {
+    return this.produits;
+  }
+
+  return this.produits.filter(
+    p => p.category === this.selectedCategory
+  );
+}
 }
