@@ -1,6 +1,16 @@
+<!-- titre de la section -->
 <h2>Liste des produits</h2>
 
-<!-- Zone de filtrage -->
+<!-- barre de recherche -->
+<div class="search">
+  <input
+    type="text"
+    placeholder="Rechercher un produit..."
+    [(ngModel)]="searchText"
+  />
+</div>
+
+<!-- boutons de filtrage par catégorie -->
 <div class="filter">
 
   @for (c of categories; track c) {
@@ -11,7 +21,7 @@
 
 </div>
 
-<!-- Liste des produits filtrés -->
+<!-- affichage de la liste filtrée -->
 <div class="container">
 
   @for (p of filteredProducts; track p.id) {
