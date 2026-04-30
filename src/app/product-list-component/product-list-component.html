@@ -1,34 +1,51 @@
-<!-- titre de la section -->
 <h2>Liste des produits</h2>
 
-<!-- barre de recherche -->
+<!-- Recherche -->
 <div class="search">
   <input
     type="text"
     placeholder="Rechercher un produit..."
     [(ngModel)]="searchText"
+    (input)="resetPage()"
   />
 </div>
 
-<!-- boutons de filtrage par catégorie -->
+<!-- Filtrage -->
 <div class="filter">
-
   @for (c of categories; track c) {
-    <button (click)="selectedCategory = c">
+    <button (click)="selectedCategory = c; resetPage()">
       {{ c }}
     </button>
   }
-
 </div>
 
-<!-- affichage de la liste filtrée -->
+<!-- Liste paginée des produits -->
 <div class="container">
-
-  @for (p of filteredProducts; track p.id) {
+  @for (p of paginatedProducts; track p.id) {
     <app-product
       [product]="p"
       (addToCart)="onAddToCart($event)">
     </app-product>
   }
+</div>
+
+<!-- Pagination -->
+<div class="pagination">
+
+  <button
+    (click)="prevPage()"
+    [disabled]="currentPage === 1">
+    ◀ Précédent
+  </button>
+
+  <span>
+    Page {{ currentPage }}
+  </span>
+
+  <button
+    (click)="nextPage()"
+    [disabled]="currentPage * itemsPerPage >= filteredProducts.length">
+    Suivant ▶
+  </button>
 
 </div>
