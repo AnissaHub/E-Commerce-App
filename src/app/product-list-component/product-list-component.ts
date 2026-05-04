@@ -3,17 +3,17 @@ import { Product } from '../models/products';
 import { ProductComponent } from '../product-component/product-component';
 import { CartService } from '../services/cart-service';
 import { FormsModule } from '@angular/forms';
+import { PaginationComponent } from '../pagination-component/pagination-component';
 
 @Component({
   selector: 'app-product-list-component',
   standalone: true,
-  imports: [ProductComponent, FormsModule],
+  imports: [ProductComponent, FormsModule, PaginationComponent],
   templateUrl: './product-list-component.html',
   styleUrl: './product-list-component.scss',
 })
 export class ProductListComponent {
 
-  // PRODUITS
   produits: Product[] = [
     new Product(1, 'Peluche', 35, 10, 'https://...', 1, 'jouet'),
     new Product(2, 'Voiture', 49, 38, 'https://...', 1, 'jouet'),
@@ -23,28 +23,23 @@ export class ProductListComponent {
     new Product(6, 'Souris', 30, 20, 'https://...', 1, 'tech')
   ];
 
-  // FILTRE
   selectedCategory: string = 'Tous';
   categories: string[] = ['Tous', 'jouet', 'tech'];
 
-  // RECHERCHE
   searchText: string = '';
 
   // PAGINATION
   currentPage: number = 1;
-  itemsPerPage: number = 2;
+  itemsPerPage: number = 3;
 
   constructor(private cartService: CartService) {}
 
-  // AJOUT PANIER
   onAddToCart(product: Product) {
     this.cartService.addToCart(product);
   }
 
-  // FILTRAGE + RECHERCHE
   get filteredProducts(): Product[] {
     return this.produits.filter((p: Product) => {
-
       const matchCategory =
         this.selectedCategory === 'Tous' ||
         p.category === this.selectedCategory;
@@ -56,7 +51,7 @@ export class ProductListComponent {
     });
   }
 
-  // PAGINATION
+  // PRODUITS PAGINÉS
   get paginatedProducts(): Product[] {
     const start = (this.currentPage - 1) * this.itemsPerPage;
     const end = start + this.itemsPerPage;
@@ -71,14 +66,14 @@ export class ProductListComponent {
     }
   }
 
-  // PAGE PRECEDENTE
+  // PAGE PRÉCÉDENTE
   prevPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
     }
   }
 
-  // RESET PAGE (utile filtre/recherche)
+  // RESET PAGINATION
   resetPage() {
     this.currentPage = 1;
   }
