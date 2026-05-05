@@ -20,7 +20,11 @@ export class ProductListComponent {
     new Product(3, 'Laptop', 10, 30, 'https://...', 1, 'tech'),
     new Product(4, 'Tablette', 200, 15, 'https://...', 1, 'tech'),
     new Product(5, 'Clavier', 50, 12, 'https://...', 1, 'tech'),
-    new Product(6, 'Souris', 30, 20, 'https://...', 1, 'tech')
+    new Product(6, 'Souris', 30, 20, 'https://...', 1, 'tech'),
+    new Product(3, 'mini avion', 10, 30, 'https://...', 1, 'jouet'),
+    new Product(4, 'télé', 200, 15, 'https://...', 1, 'tech'),
+    new Product(5, 'barbie', 50, 12, 'https://...', 1, 'jouet'),
+    new Product(6, 'camion', 30, 20, 'https://...', 1, 'jouet')
   ];
 
   selectedCategory: string = 'Tous';
