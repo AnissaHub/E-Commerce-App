@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "nom": "Laptop",
+      "prix": 1200,
+      "stock": 5,
+      "image": "https://...",
+      "category": "tech"
+    },
+    {
+      "id": 2,
+      "nom": "Souris",
+      "prix": 30,
+      "stock": 20,
+      "image": "https://...",
+      "category": "tech"
+    }
+  ],
+  "cart": [],
+  "orders": []
+}
