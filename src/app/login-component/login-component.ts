@@ -36,7 +36,7 @@ export class LoginComponent {
       // redirection si login OK
       this.router.navigate(['/']);
     } else {
-      // message erreur si login KO
+      // message erreur si login est incorrect
       this.errorMessage = 'Identifiants incorrects';
     }
   }

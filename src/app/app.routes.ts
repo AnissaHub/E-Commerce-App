@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { ProductListComponent } from './product-list-component/product-list-component';
 import { CartComponent } from './cart-component/cart-component';
 import { LoginComponent } from './login-component/login-component';
+import { AuthGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   {
@@ -10,7 +11,8 @@ export const routes: Routes = [
   },
   {
     path: 'cart',
-    component: CartComponent
+    component: CartComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
