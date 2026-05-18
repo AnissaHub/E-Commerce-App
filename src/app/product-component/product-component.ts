@@ -14,7 +14,7 @@ export class ProductComponent {
   //  nom de l'événement
   @Output() addToCart = new EventEmitter<Product>();
 
-  // fonction différente
+  // fonction 
   add() {
     this.addToCart.emit(this.product);
     

@@ -2,9 +2,15 @@
   <h3>{{ product.nom }}</h3>
 
   <p>{{ product.prix }} €</p>
+    <!--Stock-->
+  @if(product.stock > 0){
+    <p>Stock : {{ product.stock }}</p>
+  }  @else {
+    <p style="color: red;">Rupture de stock</p>
+  }
+  
 
-  <p>Stock : {{ product.stock }}</p>
-
+  <!--Bouton ajout-->
   <button
     (click)="add()"
     [disabled]="product.stock === 0">
