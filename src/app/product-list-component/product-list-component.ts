@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/products';
 import { ProductComponent } from '../product-component/product-component';
 import { CartService } from '../services/cart-service';
+import { ProductService } from '../services/product';
 import { FormsModule } from '@angular/forms';
 import { PaginationComponent } from '../pagination-component/pagination-component';
 
@@ -14,21 +15,10 @@ import { PaginationComponent } from '../pagination-component/pagination-componen
 })
 export class ProductListComponent {
 
-  produits: Product[] = [
-    new Product(1, 'Peluche', 35, 10, 'https://...', 1, 'jouet'),
-    new Product(2, 'Voiture', 49, 38, 'https://...', 1, 'jouet'),
-    new Product(3, 'Laptop', 10, 30, 'https://...', 1, 'tech'),
-    new Product(4, 'Tablette', 200, 15, 'https://...', 1, 'tech'),
-    new Product(5, 'Clavier', 50, 12, 'https://...', 1, 'tech'),
-    new Product(6, 'Souris', 30, 20, 'https://...', 1, 'tech'),
-    new Product(3, 'mini avion', 10, 30, 'https://...', 1, 'jouet'),
-    new Product(4, 'télé', 200, 15, 'https://...', 1, 'tech'),
-    new Product(5, 'barbie', 50, 12, 'https://...', 1, 'jouet'),
-    new Product(6, 'camion', 30, 20, 'https://...', 1, 'jouet')
-  ];
-
+  produits: Product[] = [] ;
+  loading = true;                     // chargement en cours
   selectedCategory: string = 'Tous';
-  categories: string[] = ['Tous', 'jouet', 'tech'];
+  categories: string[] = ['Tous', 'Homme', 'Femme', 'enfant'];
 
   searchText: string = '';
 
@@ -36,12 +26,28 @@ export class ProductListComponent {
   currentPage: number = 1;
   itemsPerPage: number = 3;
 
-  constructor(private cartService: CartService) {}
-
-  onAddToCart(product: Product) {
-    this.cartService.addToCart(product);
+  constructor(
+  private cartService: CartService,
+  private productService: ProductService
+) {}
+ ngOnInit() {
+    this.productService.getProducts().subscribe(data => {
+      this.produits = data;
+      this.loading = false;
+    });
   }
 
+  // DELETE 
+  onDeleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe(() => {
+      this.produits = this.produits.filter(p => p.id !== id);
+    });
+  }
+
+ onAddToCart(product: Product) {
+    this.cartService.addToCart(product);
+  }
+  // Filtrer
   get filteredProducts(): Product[] {
     return this.produits.filter((p: Product) => {
       const matchCategory =

@@ -1,19 +1,50 @@
 <div class="card">
-  <h3>{{ product.nom }}</h3>
 
-  <p>{{ product.prix }} €</p>
-    <!--Stock-->
-  @if(product.stock > 0){
-    <p>Stock : {{ product.stock }}</p>
-  }  @else {
-    <p style="color: red;">Rupture de stock</p>
+  <!-- IMAGE -->
+  <div class="image">
+    <img [src]="'assets/images/' + product.image">
+  </div>
+
+  <!-- NOM -->
+  <h3 class="title">
+    {{ product.nom }}
+  </h3>
+
+  <!-- PRIX -->
+  <p class="price">
+    {{ product.prix }} €
+  </p>
+
+  <!-- CATEGORIE -->
+  <p class="category">
+    {{ product.category }}
+  </p>
+
+  <!-- STOCK -->
+  @if (product.stock > 0) {
+
+    <p class="stock">
+      Stock : {{ product.stock }}
+    </p>
+
+  } @else {
+
+    <p class="out">
+      🚫 Rupture de stock
+    </p>
+
   }
-  
 
-  <!--Bouton ajout-->
+  <!-- BOUTON -->
   <button
     (click)="add()"
     [disabled]="product.stock === 0">
+
     Ajouter au panier
+
   </button>
+  <button (click)="deleteProduct()">
+  🗑 Supprimer
+</button>
+
 </div>

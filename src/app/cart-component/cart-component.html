@@ -1,30 +1,50 @@
-<h2>Mon Panier 🛒</h2>
+<div class="cart-container">
 
-@if (cart.length === 0) {
-  <p style="text-align:center;">Panier vide</p>
-}
+  <h2>Mon Panier</h2>
 
-@if (cart.length > 0) {
-
-  @for (p of cart; track p.id) {
-    <div class="cart-item">
-      <h3>{{ p.nom }}</h3>
-
-      <p>Prix : {{ p.prix }} €</p>
-
-      <p>Quantité : {{ p.quantity }}</p>
-
-      <div class="actions">
-        <button (click)="increase(p)">+</button>
-        <button (click)="decrease(p)">-</button>
-        <button (click)="remove(p)">Supprimer</button>
-      </div>
-    </div>
+  <!-- panier vide -->
+  @if(cart.length === 0) {
+    <p class="empty">Votre panier est vide 🛒</p>
   }
 
-  <p class="total">Total : {{ total }} €</p>
+  <!-- liste produits -->
+  @for (item of cart; track item) {
 
-  <button (click)="clearCart()">
-    Vider le panier
-  </button>
-} 
+    <div class="cart-item">
+
+      <!-- IMAGE CORRIGÉE ICI -->
+      <img [src]="'assets/images/' + item.image" />
+
+      <div class="info">
+        <p class="name">{{ item.nom }}</p>
+        <p class="price">{{ item.prix }} €</p>
+      </div>
+
+      <div class="quantity">
+        <button (click)="decrease(item)">-</button>
+        <span>{{ item.quantity }}</span>
+        <button (click)="increase(item)">+</button>
+      </div>
+
+      <button class="remove" (click)="remove(item)">
+        Supprimer
+      </button>
+
+    </div>
+
+  }
+
+  <!-- total + vider panier -->
+  @if(cart.length > 0) {
+
+    <div class="total">
+      Total : {{ total }} €
+    </div>
+
+    <button class="clear-btn" (click)="clearCart()">
+      Vider le panier
+    </button>
+
+  }
+
+</div>

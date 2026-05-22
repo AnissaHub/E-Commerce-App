@@ -20,4 +20,10 @@ export class ProductComponent {
     
   }
 
+  @Output() delete = new EventEmitter<number>();
+
+deleteProduct() {
+  this.delete.emit(this.product.id);
+}
+   
 }
