@@ -1,0 +1,35 @@
+<h2>Historique des commandes</h2>
+
+@for (order of orders; track order.id) {
+
+  <div class="order">
+
+    <h3>
+      Commande #{{ order.id }}
+    </h3>
+
+    <p>
+      Date : {{ order.date }}
+    </p>
+
+    <p>
+      Total : {{ order.total }} €
+    </p>
+
+    <h4>Produits :</h4>
+
+    <ul>
+
+      @for (product of order.products; track product.id) {
+
+        <li>
+          {{ product.nom }} - {{ product.prix }} €
+        </li>
+
+      }
+
+    </ul>
+
+  </div>
+
+}

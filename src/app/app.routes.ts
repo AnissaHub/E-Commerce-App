@@ -6,6 +6,7 @@ import { AuthGuard } from './guards/auth-guard';
 import { AddProductComponent } from './add-product-component/add-product-component';
 
 import { ProductDetailComponent } from './product-detail-component/product-detail-component';
+import { OrderHistoryComponent } from './order-history-component/order-history-component';
 
 export const routes: Routes = [
   {
@@ -29,5 +30,10 @@ export const routes: Routes = [
   {
   path: 'product/:id',
   component: ProductDetailComponent
-}
+},
+
+ {
+  path: 'order-history',
+  component: OrderHistoryComponent
+ }
 ];
