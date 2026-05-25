@@ -73,5 +73,41 @@
       "image": "91_tshirt_black.png"
     }
   ],
+  "orders": [
+    {
+      "products": [
+        {
+          "id": "3",
+          "nom": "Chemise Homme",
+          "prix": 45,
+          "category": "Chemise",
+          "stock": 10,
+          "image": "15_chemise.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "6",
+          "nom": "Sneaker Sport",
+          "prix": 80,
+          "category": "Chaussure",
+          "stock": 12,
+          "image": "24_sneaker.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "nom": "Pantalon Classique",
+          "prix": 55,
+          "category": "Pantalon",
+          "stock": 4,
+          "image": "23_pantalon.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 180,
+      "date": "2026-05-25T09:30:15.334Z",
+      "id": "VLTOdfKghvs"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
