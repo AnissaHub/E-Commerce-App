@@ -1,14 +1,18 @@
-<div class="card" (click)="goToDetail(product.id)">
+@if (product) {
+
+<div class="product-detail">
 
   <!-- IMAGE -->
   <div class="image">
-    <img [src]="'assets/images/' + product.image">
+    <img
+      [src]="'assets/images/' + product.image"
+      [alt]="product.nom">
   </div>
 
   <!-- NOM -->
-  <h3 class="title">
+  <h2 class="title">
     {{ product.nom }}
-  </h3>
+  </h2>
 
   <!-- PRIX -->
   <p class="price">
@@ -17,23 +21,27 @@
 
   <!-- CATEGORIE -->
   <p class="category">
-    {{ product.category }}
+    Catégorie : {{ product.category }}
   </p>
 
   <!-- STOCK -->
   @if (product.stock > 0) {
+
     <p class="stock">
       Stock : {{ product.stock }}
     </p>
+
   } @else {
+
     <p class="out">
       🚫 Rupture de stock
     </p>
+
   }
 
-  <!-- BOUTON PANIER -->
+  <!-- AJOUT PANIER -->
   <button
-    (click)="add(); $event.stopPropagation()"
+    (click)="addToCart(product)"
     [disabled]="product.stock === 0">
 
     Ajouter au panier
@@ -41,11 +49,12 @@
   </button>
 
   <!-- SUPPRIMER -->
-  <button
-    (click)="deleteProduct(); $event.stopPropagation()">
+  <button (click)="deleteProduct(product.id)">
 
     🗑 Supprimer
 
   </button>
 
 </div>
+
+}

@@ -33,6 +33,19 @@ export class ProductService {
 deleteProduct(id: number) {
   return this.http.delete(`${this.apiUrl}/${id}`);
 }
+// modifier un produit
+updateProduct(product: Product): Observable<Product> {
+  return this.http.put<Product>(
+    `${this.apiUrl}/${product.id}`,
+    product
+  );
+}
+//AFFICHAGE DU PRODUIT PAR SON id
+getProductById(id: number) {
+  return this.http.get<Product>(
+    `${this.apiUrl}/${id}`
+  );
+}
 
 
 }

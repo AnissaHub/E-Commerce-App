@@ -43,7 +43,17 @@ export class ProductListComponent {
       this.produits = this.produits.filter(p => p.id !== id);
     });
   }
+//    UPDATE
+//   selectedProduct!: Product;
+//   onEditProduct(product: Product) {
+//   this.selectedProduct = { ...product };
+// }
 
+
+
+
+
+  // ajouter au panier
  onAddToCart(product: Product) {
     this.cartService.addToCart(product);
   }
