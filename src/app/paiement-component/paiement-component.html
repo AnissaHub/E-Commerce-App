@@ -1,0 +1,15 @@
+<h2>Paiement</h2>
+
+<p>Total à payer : {{ total }} €</p>
+
+<form (ngSubmit)="pay()">
+
+  <input type="text" placeholder="Nom carte" required>
+  <input type="text" placeholder="Numéro carte" required>
+  <input type="text" placeholder="CVC" required>
+
+  <button type="submit">
+    Payer
+  </button>
+
+</form>

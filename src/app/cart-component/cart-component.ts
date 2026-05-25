@@ -3,11 +3,13 @@ import { Product } from '../models/products';
 import { CartService } from '../services/cart-service';
 import { CommonModule } from '@angular/common';
 import { OrderService } from '../services/order';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './cart-component.html',
   styleUrl: './cart-component.scss'
 })
