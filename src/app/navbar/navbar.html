@@ -1,30 +1,32 @@
 <nav class="navbar">
 
   <a routerLink="/" routerLinkActive="active">
-     Produits
-   </a>
+    Produits
+  </a>
 
-   @if (isLoggedIn()) {
+  
 
-    <a routerLink="/cart" routerLinkActive="active">
-      Panier ({{ totalItems }})
+  <!-- LOGIN / LOGOUT -->
+  @if (isLoggedIn()) {
+<a (click)="logout()">
+  Déconnexion
+</a>
+
+    <a routerLink="/order-history" routerLinkActive="active">
+      Mes commandes
     </a>
 
-    <button (click)="logout()">
-      Déconnexion
-    </button>
+  } @else {
 
-  }
-
-  @if (!isLoggedIn()) {
-
-    <a routerLink="/login">
+    <a routerLink="/login" routerLinkActive="active">
       Connexion
     </a>
 
   }
-  <a routerLink="/add">Ajouter un produit</a>
 
-  <a [routerLink]="['/order-history']"> Mes commandes</a>
+  <!-- PANIER -->
+  <a routerLink="/cart" routerLinkActive="active">
+    Panier ({{ totalItems }})
+  </a>
 
 </nav>

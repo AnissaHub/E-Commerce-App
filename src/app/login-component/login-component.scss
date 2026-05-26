@@ -13,7 +13,7 @@
 /* TITRE */
 h2 {
   margin-bottom: 20px;
-  color: #7e57c2;
+  color: #e6007e
 }
 
 /* FORMULAIRE */
@@ -44,7 +44,7 @@ input {
 }
 
 input:focus {
-  border-color: #7e57c2;
+  border-color: #e6007e;
   box-shadow: 0 0 5px rgba(126, 87, 194, 0.3);
 }
 
@@ -55,7 +55,7 @@ button {
   border: none;
   border-radius: 20px;
 
-  background: linear-gradient(90deg, #7e57c2, #b39ddb);
+  background: linear-gradient(90deg, #e6007e, #fb85ca);
   color: white;
 
   cursor: pointer;

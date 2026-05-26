@@ -2,57 +2,67 @@
 
   <h2>Mon Panier</h2>
 
-  <!-- panier vide -->
-  @if(cart.length === 0) {
-    <p class="empty">Votre panier est vide 🛒</p>
-  }
+  @if (cart.length > 0) {
 
-  <!-- liste produits -->
+  <!-- LISTE PRODUITS -->
   @for (item of cart; track item) {
 
-    <div class="cart-item">
+  <div class="cart-item">
 
-      <!-- IMAGE CORRIGÉE ICI -->
-      <img [src]="'assets/images/' + item.image" />
+    <!-- IMAGE -->
+    <img [src]="'assets/images/' + item.image" />
 
-      <div class="info">
-        <p class="name">{{ item.nom }}</p>
-        <p class="price">{{ item.prix }} €</p>
-      </div>
-
-      <div class="quantity">
-        <button (click)="decrease(item)">-</button>
-        <span>{{ item.quantity }}</span>
-        <button (click)="increase(item)">+</button>
-      </div>
-
-      <button class="remove" (click)="remove(item)">
-        Supprimer
-      </button>
-
+    <!-- INFOS -->
+    <div class="info">
+      <p class="name">{{ item.nom }}</p>
+      <p class="price">{{ item.prix }} €</p>
     </div>
 
-  }
-
-  <!-- total + vider panier -->
-  @if(cart.length > 0) {
-
-    <div class="total">
-      Total : {{ total }} €
+    <!-- QUANTITÉ -->
+    <div class="quantity">
+      <button (click)="decrease(item)">-</button>
+      <span>{{ item.quantity }}</span>
+      <button (click)="increase(item)">+</button>
     </div>
 
-    <button class="clear-btn" (click)="clearCart()">
-      Vider le panier
+    <!-- SUPPRIMER -->
+    <button class="remove" (click)="remove(item)">
+      Supprimer
     </button>
 
+  </div>
+
   }
 
-  <button (click)="checkout()">
-     Valider ma commande
+  <!-- TOTAL -->
+  <div class="total">
+    Total : {{ total }} €
+  </div>
+
+  <!-- ACTIONS -->
+  <button class="clear-btn" (click)="clearCart()">
+    Vider le panier
+  </button>
+
+  <button class="validate-btn" (click)="checkout()">
+    Valider ma commande
   </button>
 
   <button routerLink="/payment">
     Passer au paiement
   </button>
+
+  } @else {
+
+  <!-- PANIER VIDE -->
+  <div class="empty">
+    🛒 Remplis ton panier
+  </div>
+
+  <button routerLink="/">
+    Continuer les achats
+  </button>
+
+  }
 
 </div>

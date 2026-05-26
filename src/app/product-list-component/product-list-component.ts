@@ -23,8 +23,8 @@ export class ProductListComponent {
   searchText: string = '';
 
   // PAGINATION
-  currentPage: number = 1;
-  itemsPerPage: number = 3;
+ itemsPerPage = 4;
+  currentPage = 1;
 
   constructor(
   private cartService: CartService,
@@ -72,28 +72,33 @@ export class ProductListComponent {
   }
 
   // PRODUITS PAGINÉS
-  get paginatedProducts(): Product[] {
+   get paginatedProducts(): Product[] {
+
     const start = (this.currentPage - 1) * this.itemsPerPage;
-    const end = start + this.itemsPerPage;
 
-    return this.filteredProducts.slice(start, end);
+    return this.filteredProducts.slice(
+      start,
+      start + this.itemsPerPage
+    );
+  }
+  
+  // TOTAL PAGES
+
+  get totalPages(): number {
+
+    return Math.ceil(this.filteredProducts.length / this.itemsPerPage);
   }
 
-  // PAGE SUIVANTE
-  nextPage() {
-    if (this.currentPage * this.itemsPerPage < this.filteredProducts.length) {
-      this.currentPage++;
-    }
+  
+  // CHANGE PAGE
+ 
+  goToPage(page: number) {
+    this.currentPage = page;
   }
 
-  // PAGE PRÉCÉDENTE
-  prevPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-    }
-  }
-
-  // RESET PAGINATION
+  
+  // RESET PAGE (SEARCH / FILTER)
+  
   resetPage() {
     this.currentPage = 1;
   }

@@ -247,6 +247,140 @@
       "total": 80,
       "date": "2026-05-25T15:14:16.577Z",
       "id": "Gk-tTV_tcuw"
+    },
+    {
+      "products": [
+        {
+          "id": "2",
+          "nom": "Short Orange",
+          "prix": 35,
+          "category": "Short",
+          "stock": 5,
+          "image": "12_short_orange.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "3",
+          "nom": "Chemise Homme",
+          "prix": 45,
+          "category": "Chemise",
+          "stock": 10,
+          "image": "15_chemise.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 80,
+      "date": "2026-05-26T09:21:58.990Z",
+      "id": "SH350dVv5I8"
+    },
+    {
+      "products": [
+        {
+          "id": "1",
+          "nom": "Short Vert",
+          "prix": 30,
+          "category": "Short",
+          "stock": 8,
+          "image": "11_short_vert.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "nom": "Short Orange",
+          "prix": 35,
+          "category": "Short",
+          "stock": 5,
+          "image": "12_short_orange.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "3",
+          "nom": "Chemise Homme",
+          "prix": 45,
+          "category": "Chemise",
+          "stock": 10,
+          "image": "15_chemise.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "4",
+          "nom": "Pantalon Jean",
+          "prix": 60,
+          "category": "Pantalon",
+          "stock": 7,
+          "image": "20_pantalon_r.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 170,
+      "date": "2026-05-26T11:48:29.779Z",
+      "id": "r86X8CSUQGc"
+    },
+    {
+      "products": [
+        {
+          "id": "2",
+          "nom": "Short Orange",
+          "prix": 35,
+          "category": "Short",
+          "stock": 5,
+          "image": "12_short_orange.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "3",
+          "nom": "Chemise Homme",
+          "prix": 45,
+          "category": "Chemise",
+          "stock": 10,
+          "image": "15_chemise.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 80,
+      "date": "2026-05-26T11:49:00.233Z",
+      "id": "sK1hspgnutU"
+    },
+    {
+      "products": [
+        {
+          "id": "2",
+          "nom": "Short Orange",
+          "prix": 35,
+          "category": "Short",
+          "stock": 5,
+          "image": "12_short_orange.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "1",
+          "nom": "Short Vert",
+          "prix": 30,
+          "category": "Short",
+          "stock": 8,
+          "image": "11_short_vert.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 65,
+      "date": "2026-05-26T11:57:24.469Z",
+      "id": "SlfMaO8N_0w"
+    },
+    {
+      "products": [
+        {
+          "id": "2",
+          "nom": "Short Orange",
+          "prix": 35,
+          "category": "Short",
+          "stock": 5,
+          "image": "12_short_orange.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 35,
+      "date": "2026-05-26T13:37:46.215Z",
+      "id": "SOJYQXSaNt8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

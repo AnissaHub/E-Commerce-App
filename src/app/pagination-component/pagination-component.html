@@ -1,19 +1,15 @@
 <div class="pagination">
 
-  <button
-    (click)="goPrev()"
-    [disabled]="currentPage === 1">
-    ◀ Précédent
-  </button>
+  @for (page of pages; track page) {
 
-  <span>
-    Page {{ currentPage }}
-  </span>
+    <button
+      (click)="goToPage(page)"
+      [class.active]="currentPage === page">
 
-  <button
-    (click)="goNext()"
-    [disabled]="currentPage * itemsPerPage >= totalItems">
-    Suivant ▶
-  </button>
+      {{ page }}
+
+    </button>
+
+  }
 
 </div>
