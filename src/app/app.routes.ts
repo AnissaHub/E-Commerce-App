@@ -9,6 +9,7 @@ import { ProductDetailComponent } from './product-detail-component/product-detai
 import { OrderHistoryComponent } from './order-history-component/order-history-component';
 import { PaiementComponent } from './paiement-component/paiement-component';
 
+
 export const routes: Routes = [
   {
     path: '',
@@ -42,5 +43,6 @@ export const routes: Routes = [
   path: 'payment',
   component: PaiementComponent,
    canActivate: [AuthGuard]
-}
+  }
+ 
 ];

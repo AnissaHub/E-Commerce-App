@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Product } from '../models/products';
 import { CartService } from '../services/cart-service';
 import { CommonModule } from '@angular/common';
-import { OrderService } from '../services/order';
-import { RouterModule } from '@angular/router';
+import { OrderService } from '../services/order'; 
+import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -17,7 +17,8 @@ export class CartComponent {
 
   constructor(
     private cartService: CartService,
-    private orderService:   OrderService
+    private orderService: OrderService,
+    private router: Router
 
   ) {}
 
@@ -62,9 +63,7 @@ checkout() {
     .subscribe(() => {
 
       alert('Commande enregistrée');
-
-     this.cartService.clearCart();
-
+      
     });
 
 }
