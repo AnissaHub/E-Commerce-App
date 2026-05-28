@@ -1,34 +1,56 @@
-<!-- titre de la section -->
 <h2>Liste des produits</h2>
 
-<!-- barre de recherche -->
-<div class="search">
-  <input
-    type="text"
-    placeholder="Rechercher un produit..."
-    [(ngModel)]="searchText"
-  />
-</div>
+<!-- Loading -->
+@if(loading) {
 
-<!-- boutons de filtrage par catégorie -->
-<div class="filter">
+  <p>Chargement des produits...</p>
 
-  @for (c of categories; track c) {
-    <button (click)="selectedCategory = c">
-      {{ c }}
-    </button>
-  }
+} @else {
 
-</div>
+  <!-- Recherche -->
+  <div class="search">
+    <input
+      type="text"
+      placeholder="Rechercher..."
+      [(ngModel)]="searchText"
+      (input)="resetPage()"
+    />
+  </div>
 
-<!-- affichage de la liste filtrée -->
-<div class="container">
+  <!-- Filtres catégories -->
+  <div class="filter">
+    @for (c of categories; track c) {
 
-  @for (p of filteredProducts; track p.id) {
-    <app-product
-      [product]="p"
-      (addToCart)="onAddToCart($event)">
-    </app-product>
-  }
+      <button (click)="selectedCategory = c; resetPage()">
+        {{ c }}
+      </button>
 
-</div>
+    }
+  </div>
+
+  <!-- Liste produits -->
+  <div class="container">
+
+    @for (p of paginatedProducts; track p.id) {
+
+      <app-product
+        [product]="p"
+        (addToCart)="onAddToCart($event)"
+        (delete)="onDeleteProduct($event)">
+        <!--- (put)="onUpdateProduct($event)"------------- -->
+      </app-product>
+
+    }
+
+  </div>
+
+  <!-- Pagination -->
+  <app-pagination-component
+    [currentPage]="currentPage"
+    [itemsPerPage]="itemsPerPage"
+    [totalItems]="filteredProducts.length"
+    (next)="nextPage()"
+    (prev)="prevPage()">
+  </app-pagination-component>
+
+}

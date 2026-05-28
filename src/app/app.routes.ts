@@ -1,6 +1,11 @@
 import { Routes } from '@angular/router';
 import { ProductListComponent } from './product-list-component/product-list-component';
 import { CartComponent } from './cart-component/cart-component';
+import { LoginComponent } from './login-component/login-component';
+import { AuthGuard } from './guards/auth-guard';
+import { AddProductComponent } from './add-product-component/add-product-component';
+
+import { ProductDetailComponent } from './product-detail-component/product-detail-component';
 
 export const routes: Routes = [
   {
@@ -9,6 +14,20 @@ export const routes: Routes = [
   },
   {
     path: 'cart',
-    component: CartComponent
-  }
+    component: CartComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+   {
+    path: 'add',
+    component: AddProductComponent
+  },
+
+  {
+  path: 'product/:id',
+  component: ProductDetailComponent
+}
 ];
