@@ -32,20 +32,20 @@
   }
 
   <!-- BOUTON PANIER -->
+   <!-- stopPropagation() -> empêcher le bouton panier d’ouvrir le détail produit -->
   <button
-    (click)="add(); $event.stopPropagation()"
+    (click)="add(); $event.stopPropagation()"    
     [disabled]="product.stock === 0">
 
     Ajouter au panier
 
   </button>
 
-  <!-- SUPPRIMER -->
-  <button
-    (click)="deleteProduct(); $event.stopPropagation()">
-
-    🗑 Supprimer
-
+  <!-- SUPPRIMER
+  @if (isAdmin) {
+  <button class="remove" (click)="remove(item)">
+    Supprimer
   </button>
+  } -->
 
 </div>

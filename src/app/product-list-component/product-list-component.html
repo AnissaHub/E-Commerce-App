@@ -37,20 +37,19 @@
         [product]="p"
         (addToCart)="onAddToCart($event)"
         (delete)="onDeleteProduct($event)">
-        <!--- (put)="onUpdateProduct($event)"------------- -->
+        <!--- (put)="onUpdateProduct($event)" -->
       </app-product>
 
     }
 
   </div>
 
-  <!-- Pagination -->
-  <app-pagination-component
-    [currentPage]="currentPage"
-    [itemsPerPage]="itemsPerPage"
-    [totalItems]="filteredProducts.length"
-    (next)="nextPage()"
-    (prev)="prevPage()">
-  </app-pagination-component>
+ <!-- Pagination -->
+<app-pagination-component
+  [currentPage]="currentPage"
+  [itemsPerPage]="itemsPerPage"
+  [totalItems]="filteredProducts.length"
+  (pageChange)="goToPage($event)">
+</app-pagination-component>
 
 }

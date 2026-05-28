@@ -7,6 +7,8 @@ import { AddProductComponent } from './add-product-component/add-product-compone
 
 import { ProductDetailComponent } from './product-detail-component/product-detail-component';
 import { OrderHistoryComponent } from './order-history-component/order-history-component';
+import { PaiementComponent } from './paiement-component/paiement-component';
+
 
 export const routes: Routes = [
   {
@@ -16,7 +18,7 @@ export const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
-    canActivate: [AuthGuard]
+ 
   },
   {
     path: 'login',
@@ -34,6 +36,13 @@ export const routes: Routes = [
 
  {
   path: 'order-history',
-  component: OrderHistoryComponent
- }
+  component: OrderHistoryComponent,
+   canActivate: [AuthGuard]
+ },
+ {
+  path: 'payment',
+  component: PaiementComponent,
+   canActivate: [AuthGuard]
+  }
+ 
 ];

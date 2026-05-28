@@ -1,29 +1,203 @@
-.image {
-  width: 100%;
-  height: 240px;
+.card {
 
-  border-radius: 16px;
+  width: 280px;
+
+  background: white;
+
+  border-radius: 22px;
+
+  padding: 18px;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+  transition: all 0.3s ease;
+
+  cursor: pointer;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
 
   overflow: hidden;
 
-  background: #f5f5f5;
+  position: relative;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* EFFET HOVER */
+
+.card:hover {
+
+  transform: translateY(-6px);
+
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+
+.image {
+
+  width: 100%;
+
+  height: 240px;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background: #f7f7f7;
 }
 
 .image img {
+
   width: 100%;
+
   height: 100%;
 
   object-fit: cover;
 
-  transition: transform 0.35s ease, filter 0.3s ease;
+  transition: transform 0.4s ease;
 }
 
-/* hover card */
-.card:hover .image img {
-  transform: scale(1.08);
-  filter: brightness(1.05);
+.card:hover img {
+
+  transform: scale(1.05);
 }
+
+/* NOM */
+
+.title {
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  color: #1a1a1a;
+
+  margin: 0;
+}
+
+/* PRIX */
+
+.price {
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+  color: #e6007e; /* rose vente-privee */
+
+  margin: 0;
+}
+
+/* CATEGORIE */
+
+.category {
+
+  font-size: 13px;
+
+  color: #888;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+/* STOCK */
+
+.stock {
+
+  color: #0f9d58;
+
+  font-weight: 600;
+
+  font-size: 14px;
+}
+
+.out {
+
+  color: #ff3b30;
+
+  font-weight: bold;
+
+  font-size: 14px;
+}
+
+/* BOUTONS */
+
+button {
+
+  border: none;
+
+  border-radius: 14px;
+
+  padding: 12px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+/* AJOUT PANIER */
+
+button:first-of-type {
+
+  background: linear-gradient(135deg, #ff008c, #ff5ca8);
+
+  color: white;
+}
+
+button:first-of-type:hover {
+
+  transform: scale(1.03);
+
+  opacity: 0.95;
+}
+
+/* SUPPRIMER */
+
+button:last-of-type {
+
+  background: #f3f3f3;
+
+  color: #444;
+}
+
+button:last-of-type:hover {
+
+  background: #e4e4e4;
+}
+
+/* DISABLED */
+
+button:disabled {
+
+  background: #d9d9d9;
+
+  cursor: not-allowed;
+}
+
+/* PAPILLON STYLE BADGE */
+
+.card::before {
+  content: "NEW";
+
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  background: linear-gradient(135deg, #ff008c, #ff5ca8);
+  color: white;
+
+  font-size: 12px;
+  padding: 5px 10px;
+
+  border-radius: 20px;
+
+  font-weight: bold;
+} 

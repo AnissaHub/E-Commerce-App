@@ -1,51 +1,70 @@
 .cart-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
+  max-width: 950px;
+  margin: 30px auto;
+  padding: 25px;
+
+  font-family: "Arial", sans-serif;
+
+  background: #fafafa;
 }
 
 /* TITRE */
 h2 {
   text-align: center;
-  color: #7e57c2;
-  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+
+  color: #222;
+
+  margin-bottom: 25px;
+
+  letter-spacing: 1px;
 }
 
 /* PANIER VIDE */
 .empty {
   text-align: center;
-  color: #777;
+  color: #999;
   font-size: 16px;
+
+  padding: 30px;
 }
 
-/* CARTE PRODUIT */
+/* CARD STYLE PAPILLON */
 .cart-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  background: white;
-  padding: 15px;
+  background: #fff;
+
+  padding: 15px 20px;
   margin-bottom: 12px;
 
-  border-radius: 14px;
+  border-radius: 12px;
 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 
-  transition: 0.2s;
-}
+  border: 1px solid #f0f0f0;
 
-.cart-item:hover {
-  transform: translateY(-2px);
+  transition: 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
 }
 
 /* IMAGE */
 .cart-item img {
-  width: 60px;
-  height: 60px;
+  width: 75px;
+  height: 75px;
+
   object-fit: cover;
 
   border-radius: 10px;
+
+  border: 1px solid #eee;
 }
 
 /* INFOS */
@@ -55,112 +74,170 @@ h2 {
 }
 
 .name {
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #222;
 }
 
 .price {
-  color: #7e57c2;
-  font-weight: bold;
+  margin-top: 4px;
+
+  font-size: 14px;
+  color: #666;
 }
 
-/* QUANTITE */
+/* QUANTITÉ */
 .quantity {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
+/* + / - PAPILLON STYLE */
 .quantity button {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
 
-  border: 1px solid #7e57c2;
-  border-radius: 50%;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
 
-  background: transparent;
-  color: #7e57c2;
+  background: #fff;
+  color: #e6007e;
 
   cursor: pointer;
 
+  font-size: 15px;
+  font-weight: 500;
+
   transition: 0.2s;
+
+  &:hover {
+    background: #fff0f5; /* rose très léger papillon */
+    border-color: #f3c1d7;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
-.quantity button:hover {
-  background: rgba(126, 87, 194, 0.1);
-  transform: scale(1.1);
-}
-
-.quantity button:active {
-  transform: scale(0.95);
-}
-
-.quantity span {
-  min-width: 20px;
-  text-align: center;
-  font-weight: bold;
-}
-
-/* BOUTON SUPPRIMER */
+/* SUPPRIMER */
 .remove {
-  border: 1px solid red;
   background: transparent;
-  color: red;
 
-  padding: 6px 10px;
+  border: 1px solid #e6e6e6;
+
+  color: #e6007e;
+
+  padding: 7px 10px;
+
   border-radius: 8px;
 
   cursor: pointer;
 
-  transition: 0.2s;
-}
+  font-size: 13px;
 
-.remove:hover {
-  background: red;
-  color: white;
+  transition: 0.2s;
+
+  &:hover {
+    background: #111;
+    color: #fff;
+  }
 }
 
 /* TOTAL */
 .total {
   text-align: right;
-  font-size: 18px;
-  font-weight: bold;
 
   margin-top: 20px;
 
-  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+
+  color: #222;
 }
 
-/* BOUTON VIDER PANIER */
+/* VIDER PANIER */
 .clear-btn {
-  margin-top: 15px;
-  width: 100%;
+  display: block;
+  margin: 15px auto;
 
-  padding: 10px;
+  padding: 10px 18px;
 
-  border: 1px solid #7e57c2;
+  border: 1px solid #e6e6e6;
+
   border-radius: 10px;
 
-  background: transparent;
-  color: #7e57c2;
+  background: #fff;
+  color: #222;
 
   cursor: pointer;
 
   transition: 0.2s;
+
+  &:hover {
+    background: #fff0f5;
+    border-color: #f3c1d7;
+  }
 }
 
-.clear-btn:hover {
-  background: #7e57c2;
-  color: white;
-}
+/* BOUTON PAIEMENT */
+button[routerLink] {
+  display: block;
+  width: 100%;
 
-.btn-order {
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
+  margin-top: 10px;
+  padding: 12px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #e6007e;
+  color: #fff;
+
+  font-size: 15px;
+  font-weight: 500;
+
   cursor: pointer;
+
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
-.btn-order:hover {
-  background-color: green;
+/* BOUTON VALIDER MA COMMANDE */
+.validate-btn {
+  display: block;
+  width: 100%;
+
+  margin-top: 15px;
+  padding: 12px;
+
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+
+  background: #fff;
+  color: #111;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  &:hover {
+    background: #f7f7f7;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 }

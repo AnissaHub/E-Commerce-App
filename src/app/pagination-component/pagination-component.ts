@@ -8,18 +8,23 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class PaginationComponent {
 
-  @Input() currentPage!: number;
-  @Input() itemsPerPage!: number;
   @Input() totalItems!: number;
+  @Input() itemsPerPage!: number;
+  @Input() currentPage!: number;
 
-  @Output() next = new EventEmitter<void>();
-  @Output() prev = new EventEmitter<void>();
+  @Output() pageChange = new EventEmitter<number>();
 
-  goNext() {
-    this.next.emit();
+  get totalPages(): number {
+    return Math.ceil(this.totalItems / this.itemsPerPage);
   }
 
-  goPrev() {
-    this.prev.emit();
+  goToPage(page: number) {
+    this.pageChange.emit(page);
+  }
+
+  get pages(): number[] {
+    return Array(this.totalPages)
+      .fill(0)
+      .map((_, i) => i + 1);
   }
 }
