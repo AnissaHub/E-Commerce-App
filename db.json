@@ -73,5 +73,115 @@
       "image": "91_tshirt_black.png"
     }
   ],
+  "orders": [
+    {
+      "products": [
+        {
+          "id": "3",
+          "nom": "Chemise Homme",
+          "prix": 45,
+          "category": "Chemise",
+          "stock": 10,
+          "image": "15_chemise.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "6",
+          "nom": "Sneaker Sport",
+          "prix": 80,
+          "category": "Chaussure",
+          "stock": 12,
+          "image": "24_sneaker.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "nom": "Pantalon Classique",
+          "prix": 55,
+          "category": "Pantalon",
+          "stock": 4,
+          "image": "23_pantalon.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 180,
+      "date": "2026-05-25T09:30:15.334Z",
+      "id": "VLTOdfKghvs"
+    },
+    {
+      "products": [
+        {
+          "id": "2",
+          "nom": "Short Orange",
+          "prix": 35,
+          "category": "Short",
+          "stock": 5,
+          "image": "12_short_orange.jpg",
+          "quantity": 2
+        },
+        {
+          "id": "3",
+          "nom": "Chemise Homme",
+          "prix": 45,
+          "category": "Chemise",
+          "stock": 10,
+          "image": "15_chemise.jpg",
+          "quantity": 2
+        },
+        {
+          "id": "1",
+          "nom": "Short Vert",
+          "prix": 30,
+          "category": "Short",
+          "stock": 8,
+          "image": "11_short_vert.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 190,
+      "date": "2026-05-25T12:05:42.604Z",
+      "id": "4jn6sjYaVHw"
+    },
+    {
+      "products": [],
+      "total": 0,
+      "date": "2026-05-25T12:05:47.936Z",
+      "id": "2t7nlrmdqe8"
+    },
+    {
+      "products": [
+        {
+          "id": "2",
+          "nom": "Short Orange",
+          "prix": 35,
+          "category": "Short",
+          "stock": 5,
+          "image": "12_short_orange.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "3",
+          "nom": "Chemise Homme",
+          "prix": 45,
+          "category": "Chemise",
+          "stock": 10,
+          "image": "15_chemise.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "1",
+          "nom": "Short Vert",
+          "prix": 30,
+          "category": "Short",
+          "stock": 8,
+          "image": "11_short_vert.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 110,
+      "date": "2026-05-25T12:16:05.421Z",
+      "id": "VYb7Elfzak8"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

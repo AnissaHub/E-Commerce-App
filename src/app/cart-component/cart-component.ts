@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Product } from '../models/products';
 import { CartService } from '../services/cart-service';
 import { CommonModule } from '@angular/common';
+import { OrderService } from '../services/order';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,11 @@ import { CommonModule } from '@angular/common';
 })
 export class CartComponent {
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private orderService:   OrderService
+
+  ) {}
 
   // getter 
   get cart(): Product[] {
@@ -37,6 +42,29 @@ export class CartComponent {
 
 clearCart() {
   this.cartService.clearCart();
+}
+
+checkout() {
+
+  const order = {
+
+    products: this.cart,
+
+    total: this.total,
+
+    date: new Date().toISOString()
+
+  };
+
+  this.orderService.createOrder(order)
+    .subscribe(() => {
+
+      alert('Commande enregistrée');
+
+     this.cartService.clearCart();
+
+    });
+
 }
 
 }
