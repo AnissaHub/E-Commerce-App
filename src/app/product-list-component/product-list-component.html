@@ -1,0 +1,34 @@
+<!-- titre de la section -->
+<h2>Liste des produits</h2>
+
+<!-- barre de recherche -->
+<div class="search">
+  <input
+    type="text"
+    placeholder="Rechercher un produit..."
+    [(ngModel)]="searchText"
+  />
+</div>
+
+<!-- boutons de filtrage par catégorie -->
+<div class="filter">
+
+  @for (c of categories; track c) {
+    <button (click)="selectedCategory = c">
+      {{ c }}
+    </button>
+  }
+
+</div>
+
+<!-- affichage de la liste filtrée -->
+<div class="container">
+
+  @for (p of filteredProducts; track p.id) {
+    <app-product
+      [product]="p"
+      (addToCart)="onAddToCart($event)">
+    </app-product>
+  }
+
+</div>
